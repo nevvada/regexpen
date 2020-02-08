@@ -1,0 +1,19 @@
+{
+  "name": "regexpen",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/nlemast/regexpen.git"
+  },
+  "author": "Nathan Le Master",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/nlemast/regexpen/issues"
+  },
+  "homepage": "https://github.com/nlemast/regexpen#readme"
+}
