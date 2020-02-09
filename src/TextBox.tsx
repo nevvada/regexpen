@@ -1,11 +1,19 @@
 import React from 'react'
 
-const RegexBox = () => {
+interface Props {
+  updateText: (arg: any) => void;
+  userText: string;
+}
+
+const TextBox = ({ updateText, userText }: Props) => {
+
   return (
-    <div>
-      Text Box
-    </div>
+    <>
+      <form>
+        <input type="text" onChange={updateText} />  
+      </form> 
+    </>
   )
 }
 
-export default RegexBox;
+export default TextBox;

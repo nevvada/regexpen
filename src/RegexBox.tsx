@@ -1,6 +1,10 @@
 import React from 'react'
 
-const RegexBox = () => {
+interface Props {
+  regexText: string;
+}
+
+const RegexBox = ({regexText}: Props) => {
   return (
     <div>
       
