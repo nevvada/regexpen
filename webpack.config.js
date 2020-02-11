@@ -2,18 +2,16 @@ const path = require('path');
 const webpack = require('webpack');
 
 const environment = process.env.NODE_ENV || 'development';
+
 module.exports = {
   mode: environment,
   entry: path.join(__dirname, 'src', 'index.ts'),
   module: {
     rules: [
       {
-        test: /\.(js|ts|tsx)$/,
+        test: /\.(ts|tsx)$/,
         exclude: /node_modules/,
         loader: 'babel-loader',
-        options: {
-          presets: ['@babel/preset-env', '@babel/preset-react']
-        }
       },
       {
         test: /\.(sa|sc|c)ss$/,
@@ -23,7 +21,7 @@ module.exports = {
     ]
   },
   resolve: {
-    extensions: ['.js', '.ts', '.tsx']
+    extensions: ['.js', 'jsx', '.ts', '.tsx']
   },
   output: {
     path: path.join(__dirname, 'build'),
