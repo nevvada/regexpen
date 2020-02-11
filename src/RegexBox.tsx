@@ -1,14 +1,14 @@
 import React from 'react'
 
 interface Props {
-  regexText: string;
+  userText: string;
 }
 
-const RegexBox = ({regexText}: Props) => {
+const RegexBox = ({ userText }: Props) => {
   return (
-    <div>
-      
-    </div>
+    <section className="regex-box">
+      {userText}
+    </section>
   )
 }
 
