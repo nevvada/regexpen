@@ -25,12 +25,12 @@ export class RegexTextContainer extends Component {
   }
 
   render() {
-    const { regexText, userText } = this.state;
+    const { userText } = this.state;
 
     return (
       <>
         <RegexBox 
-          regexText={regexText} 
+          userText={userText} 
         />
         <TextBox 
           updateText={this.updateText}
