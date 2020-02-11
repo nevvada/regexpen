@@ -8,11 +8,11 @@ interface Props {
 const TextBox = ({ updateText, userText }: Props) => {
 
   return (
-    <>
+    <section className="text-box">
       <form>
         <input type="text" onChange={updateText} />  
       </form> 
-    </>
+    </section>
   )
 }
 
