@@ -1,13 +1,15 @@
 import React from 'react'
 
 interface Props {
-  userText: string;
+  updateRegexText: (arg: any) => void;
 }
 
-const RegexBox = ({ userText }: Props) => {
+const RegexBox = ({ updateRegexText }: Props) => {
   return (
     <section className="regex-box">
-      {userText}
+      <form>
+        <input onChange={updateRegexText}/>
+      </form>
     </section>
   )
 }
