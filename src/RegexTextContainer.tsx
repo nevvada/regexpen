@@ -3,17 +3,39 @@ import React, { Component } from 'react';
 import RegexBox from './RegexBox';
 import TextBox from './TextBox';
 
+interface Props {}
+
 interface State {
   inputText: string;
+  matchingText: string;
   regexText: string;
-  userText: string;
 }
 
 export class RegexTextContainer extends Component {
   state: State = {
     inputText: '',
+    matchingText: '',
     regexText: '',
-    userText: '',
+  }
+
+  componentDidUpdate = (prevProps: Props, prevState: State) => {
+    const { inputText, regexText } = this.state;
+    const { 
+      inputText: prevInputText, 
+      regexText: prevRegexText 
+    } = prevState;
+
+    if (prevInputText !== inputText || prevRegexText !== regexText) {
+      this.highlightInputText(inputText)
+    }
+  }
+
+  highlightInputText = (inputText: string) => {
+    const { regexText } = this.state;
+
+    const matchingText = inputText.match(regexText);
+
+    this.setState({ matchingText });
   }
 
   updateRegexText = (event: any) => {
@@ -35,7 +57,7 @@ export class RegexTextContainer extends Component {
         <RegexBox 
           updateRegexText={this.updateRegexText}
         />
-        <TextBox 
+        <TextBox
           updateText={this.updateText}
         />
       </>
