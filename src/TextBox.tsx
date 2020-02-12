@@ -2,10 +2,9 @@ import React from 'react'
 
 interface Props {
   updateText: (arg: any) => void;
-  userText: string;
 }
 
-const TextBox = ({ updateText, userText }: Props) => {
+const TextBox = ({ updateText }: Props) => {
 
   return (
     <section className="text-box">
