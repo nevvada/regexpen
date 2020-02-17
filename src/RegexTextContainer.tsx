@@ -58,13 +58,18 @@ export class RegexTextContainer extends Component {
   }
 
   render() {
+    const { regexText } = this.state;
+
     return (
       <>
         <RegexBox 
           updateRegexText={this.updateRegexText}
         />
         <TextBox
+          highlightInputText={this.highlightInputText}
+          regexText={regexText}
           updateText={this.updateText}
+          updatedText={this.state.inputText}
         />
       </>
     )
