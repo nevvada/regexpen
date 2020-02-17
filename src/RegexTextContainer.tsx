@@ -33,9 +33,15 @@ export class RegexTextContainer extends Component {
   highlightInputText = (inputText: string) => {
     const { regexText } = this.state;
 
-    const matchingText = inputText.match(regexText);
+    const sanitizedRegex = this.sanitizeRegex(regexText);
 
-    this.setState({ matchingText });
+    const stringToGoIntoRegex = new RegExp(sanitizedRegex, 'g');
+
+    const matchingText = inputText.match(stringToGoIntoRegex);
+  }
+
+  sanitizeRegex = (regexText: string) => {
+    return regexText.replace(/\\/, '\\');
   }
 
   updateRegexText = (event: any) => {
