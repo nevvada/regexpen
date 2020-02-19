@@ -24,9 +24,18 @@ const TextBox = ({ highlightInputText, regexText, updateText, updatedText }: Pro
   return (
     <section className="text-box">
       <form>
-        <input type="text" onChange={updateText} />
+        <input 
+          autocomplete="off"
+          className="text-field"
+          onChange={updateText}
+          type="text-area" 
+        />
+        <label className="floating-label">
+          Text Field
+        </label>
+        <span className="text-field-border" />
       </form> 
-      <p>{addSpans(updatedText)}</p>
+      {/* <p>{addSpans(updatedText)}</p> */}
     </section>
   )
 }
