@@ -8,7 +8,16 @@ const RegexBox = ({ updateRegexText }: Props) => {
   return (
     <section className="regex-box">
       <form>
-        <input onChange={updateRegexText}/>
+        <input 
+          autocomplete="off"
+          className="regex-field"
+          id="regex-field" 
+          onChange={updateRegexText}
+        />
+        <label className="floating-label">
+          Regex Field
+        </label>
+        <span className="regex-field-border" />
       </form>
     </section>
   )
