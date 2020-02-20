@@ -59,6 +59,13 @@
     color: #d3869b;
     transition: 0.3s;
   }
+  &:focus,
+  &:hover {
+    border-bottom: 3px solid #d3869b;
+    transition: 0.4s;
+    transform: translateX(1)
+  }
+
 }
 
 .text-field {
