@@ -7,18 +7,13 @@ interface Props {
 const RegexBox = ({ updateRegexText }: Props) => {
   return (
     <section className="regex-box">
-      <form>
-        <input 
-          autocomplete="off"
-          className="regex-field"
-          id="regex-field" 
-          onChange={updateRegexText}
-        />
-        <label className="floating-label">
-          Regex Field
-        </label>
-        <span className="regex-field-border" />
-      </form>
+      <div className="outer-wrapper">
+      </div>
+      <div className="regex-field" contentEditable="true">
+
+      </div>
+      <span className="regex-field-border" />
+        <p className="floating-label">Regex Field</p>
     </section>
   )
 }
