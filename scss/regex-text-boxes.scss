@@ -6,11 +6,23 @@
   position: relative;
 }
 
-.regex-field {
+.outer-wrapper {
   border: 0;
   padding: 4px 0;
-  border-bottom: 1px solid #ccc;
   background-color: transparent;
+  height: 2rem;
+}
+
+.regex-field {
+  border-bottom: 1px solid #ccc;
+  // height: 60%;
+  outline: none;
+  overflow: auto;
+  display: block;
+  position: relative;
+  max-height: 10rem;
+  font-size: 1.8rem;
+  transform: translateX(0)
 
   & ~ .regex-field-border {
     position: absolute;
