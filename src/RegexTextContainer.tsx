@@ -1,8 +1,5 @@
 import React, { Component } from 'react';
 
-import RegexBox from './RegexBox';
-import TextBox from './TextBox';
-
 interface Props {}
 
 interface State {
@@ -62,17 +59,21 @@ export class RegexTextContainer extends Component {
 
     return (
       <>
-        <RegexBox 
-          updateRegexText={this.updateRegexText}
+        <section className='regex-box'>
+          <div className='outer-wrapper'></div>
         />
-        <TextBox
-          highlightInputText={this.highlightInputText}
-          regexText={regexText}
-          updateText={this.updateText}
-          updatedText={this.state.inputText}
+          <span className='regex-field-border' />
+          <p className='floating-label'>Regex Field</p>
+        </section>
+
+        <section className='input-text-box'>
+          <div className='outer-wrapper'></div>
         />
+          <span className='regex-field-border' />
+          <p className='floating-label'>Text Field</p>
+        </section>
       </>
-    )
+    );
   }
 }
 
