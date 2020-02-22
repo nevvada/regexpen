@@ -1,3 +1,4 @@
+import ContentEditable from 'react-contenteditable';
 import React, { Component } from 'react';
 
 interface Props {}
@@ -61,6 +62,10 @@ export class RegexTextContainer extends Component {
       <>
         <section className='regex-box'>
           <div className='outer-wrapper'></div>
+          <ContentEditable
+            className='regex-field'
+            html={this.state.regexText}
+            onChange={this.updateRegexText}
         />
           <span className='regex-field-border' />
           <p className='floating-label'>Regex Field</p>
@@ -68,6 +73,10 @@ export class RegexTextContainer extends Component {
 
         <section className='input-text-box'>
           <div className='outer-wrapper'></div>
+          <ContentEditable
+            className='input-text-field'
+            html={this.state.inputText}
+            onChange={this.updateInputText}
         />
           <span className='regex-field-border' />
           <p className='floating-label'>Text Field</p>
