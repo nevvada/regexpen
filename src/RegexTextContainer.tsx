@@ -13,20 +13,20 @@ export class RegexTextContainer extends Component {
   state: State = {
     inputText: '',
     matchingText: '',
-    regexText: '',
-  }
+    regexText: ''
+  };
 
   componentDidUpdate = (prevProps: Props, prevState: State) => {
     const { inputText, regexText } = this.state;
-    const { 
-      inputText: prevInputText, 
-      regexText: prevRegexText 
-    } = prevState;
+    const { inputText: prevInputText, regexText: prevRegexText } = prevState;
 
-    if (prevInputText !== inputText || prevRegexText !== regexText) {
-      this.highlightInputText(inputText)
+    if (
+      regexText &&
+      (prevRegexText !== regexText || prevInputText !== inputText)
+    ) {
+      this.highlightInputText(inputText);
     }
-  }
+  };
 
   highlightInputText = (inputText: string) => {
     const { regexText } = this.state;
@@ -36,28 +36,40 @@ export class RegexTextContainer extends Component {
     const stringToGoIntoRegex = new RegExp(sanitizedRegex, 'g');
 
     const matchingText = inputText.match(stringToGoIntoRegex);
-  }
+
+    const mapped = inputText
+      .split('')
+      .map(each => {
+        return each.match(regexText) ? `<strong>${each}</strong>` : each;
+      })
+      .join('');
+
+      console.log('aaa', mapped)
+    this.setState({ inputText: mapped });
+  };
 
   sanitizeRegex = (regexText: string) => {
-    return regexText.replace(/\\/, '\\');
-  }
+    return regexText;
+    // return regexText.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+  };
 
   updateRegexText = (event: any) => {
-    const { inputText } = this.state;
-    const { target: { value } } = event;
+    const {
+      target: { value }
+    } = event;
 
-    this.setState({ regexText: value });
-  }
+    this.setState({ regexText: `${value}` });
+  };
 
-  updateText = (event: any) => {
-    const { target: { value } } = event;
+  updateInputText = (event: any) => {
+    const {
+      target: { value }
+    } = event;
 
     this.setState({ inputText: value });
-  }
+  };
 
   render() {
-    const { regexText } = this.state;
-
     return (
       <>
         <section className='regex-box'>
@@ -66,7 +78,7 @@ export class RegexTextContainer extends Component {
             className='regex-field'
             html={this.state.regexText}
             onChange={this.updateRegexText}
-        />
+          />
           <span className='regex-field-border' />
           <p className='floating-label'>Regex Field</p>
         </section>
@@ -77,7 +89,7 @@ export class RegexTextContainer extends Component {
             className='input-text-field'
             html={this.state.inputText}
             onChange={this.updateInputText}
-        />
+          />
           <span className='regex-field-border' />
           <p className='floating-label'>Text Field</p>
         </section>
